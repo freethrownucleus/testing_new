@@ -1,0 +1,417 @@
+/* Global Styles */
+body {
+    background-color: #2e7d32; /* Tamno zelena */
+    font-family: Montserrat, sans-serif;
+    min-width: 950px;
+    margin: 0;
+    padding: 0;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Menu */
+#menu {
+    width: 100%;
+    height: 140px;
+    min-width: 950px;
+    background-color: #1b5e20; /* Tamnija zelena */
+    display: flex;
+    justify-content: center; /* Centriranje svih elemenata unutar menija */
+    align-items: center; /* Poravnanje gumba vertikalno u sredinu */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Centering button list */
+.bigList {
+    display: flex;
+    justify-content: center; /* Centriranje gumba unutar roditeljskog kontejnera */
+    align-items: center; /* Osiguranje da su gumbi pravilno poravnati vertikalno */
+    padding: 0;
+}
+
+#showLoginDiv {
+    position: absolute;
+    right: 20px;
+    top: 10px; /* Početni vrh */
+    font-size: 1.1rem;
+    text-align: right; /* Poravnanje teksta i gumba desno */
+}
+
+
+/* Navigation Buttons */
+.buttonList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    display: flex;  /* Osigurava da se listama rukuje kao fleksibilni element */
+}
+
+.buttonList li {
+    display: inline-block;  /* Osigurava da su gumbi postavljeni horizontalno */
+    margin-right: 50px;  /* Povećan razmak između gumba */
+}
+
+.buttonList li:last-child {
+    margin-right: 0; /* Ne želimo razmak na zadnjem elementu */
+}
+
+.buttonList a {
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    border: 2px solid white;
+    display: inline-flex; /* Omogućava vertikalno poravnanje unutar linka */
+    align-items: center; /* Centriranje sadržaja unutar gumba */
+}
+
+.buttonList a:hover {
+    background-color: white;
+    color: #1b5e20;
+    transform: scale(1.05);
+}
+
+#boardSizeForm select {
+    width: 100%; /* Možete prilagoditi veličinu prema potrebama */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#boardSizeForm select:focus {
+    outline: none;
+    border-color: #66afe9; /* Boja obruba pri fokusu */
+    box-shadow: 0 0 5px rgba(102, 175, 233, 0.5); /* Efekt fokusa */
+}
+
+#playFirstForm,
+#difficultyForm {
+    display: flex;
+    align-items: center;
+    gap: 205px; /* Razmak između radio dugmadi i labela */
+}
+
+.loginButton {
+    width: 500px;
+}
+
+#logoutButton {
+    font-size: 1.3rem; 
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 15px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#logoutButton:hover {
+    background-color: white;
+    color: #1b5e20;
+    transform: scale(1.05);
+}
+
+/* Login Form */
+#gameFormDiv {
+    margin-top: 230px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: #1b5e20; /* Tamno zelena */
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    max-width: 330px;
+    text-align: center;
+}
+
+#gameFormDiv input, #gameFormDiv button {
+    display: block;
+    margin: 15px auto;
+    padding: 15px;
+    font-size: 1.2rem;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: #2e7d32;
+}
+
+form#userInputForm{
+    margin-bottom: 50px;
+}
+
+form#boardSizeForm {
+    display: inline-block;
+    width: 120px;
+}
+
+input#space {
+    margin-left: 50px;
+}
+
+button#startButton {
+    width: 30%;
+}
+
+#gameFormDiv input {
+    color: white; /* Bijela boja za tekst unutar inputa */
+}
+
+#gameFormDiv input::placeholder {
+    color: white; /* Bijela boja za placeholder tekst */
+}
+
+#gameFormDiv label {
+    color: white; /* Bijela boja za labelu ako je koristite */
+}
+
+#gameFormDiv button {
+    background-color: white;
+    color: #1b5e20;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#gameFormDiv button:hover {
+    background-color: gray;
+    color: white;
+}
+
+div#gameDiv {
+    margin: auto;
+    padding-top: 150px;
+}
+
+#gameWrapper {
+    position: relative;
+    width: 100%; /* Ili fiksna širina igre, npr. 600px */
+    margin: 0 auto;
+    text-align: center; /* Centriranje sadržaja unutar ovog elementa */
+}
+
+#messageH1 {
+    position: absolute;
+    padding-top: 10px;
+    left: 50%;
+    transform: translateX(-50%); /* Centriranje po horizontali */
+    z-index: 10; /* Osigurajte da je iznad igre */
+}
+
+
+/* Game End Section - Centriranje rezultata i gumba */
+#gameEndDiv {
+    margin: 200px auto;
+    text-align: center;
+    font-size: 2rem; /* Veličina fonta za rezultat */
+    color: white;
+    max-width: 400px; /* Ograničenje širine */
+    padding: 20px;
+    background-color: #1b5e20;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+#restartButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#restartButton:hover {
+    background-color: #218838;
+}
+
+div#leaveGameDiv {
+    height: 100px; 
+}
+
+/* Centriranje gumba za izlaz */
+#leaveGameButton {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    font-size: 1.4rem;
+    margin-top: 5%;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid white;
+    background-color: #1b5e20;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+#leaveGameButton:hover {
+    background-color: white;
+    color: #1b5e20;
+}
+
+
+
+/* Home Text */
+#homeTextDiv {
+    margin-top: 300px;
+    text-align: center;
+    font-size: 4rem;
+}
+
+/* Game Board */
+.boardDiv {
+    text-align: center;
+    margin: auto;
+}
+
+.boardDiv img {
+    width: 80px;
+    height: 80px;
+}
+
+.cellDiv, .pieceDiv {
+    width: 90px;
+    display: inline-block;
+}
+
+div#tableRankingDiv {
+    margin-top: 230px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.rankings {
+    font-size: 1.4rem;
+    padding-top: 15px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #1b5e20;
+    border-radius: 15px;
+}
+
+table {
+    margin: auto;
+}
+
+
+/* Restart and Leave Game Buttons */
+#restartGameButton, #leaveGameButton {
+    padding: 10px;
+    font-size: 15px;
+    margin: 10px auto;
+    border: 2px solid white;
+    background-color: #2e7d32;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#restartGameButton:hover, #leaveGameButton:hover {
+    background-color: white;
+    color: #1b5e20;
+}
+
+/* Table (Rankings or Game Data) */
+td, th {
+    width: 50%;
+    border: 2px solid white;
+    padding: 8px;
+    text-align: center;
+    background-color: #1b5e20;
+    color: white;
+}
+
+/* Error Messages */
+#wrongPasswordText, #wrongBoardSizeText {
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    display: none;
+}
+
+/* Rules Section */
+#rulesDiv {
+    font-size: 1.4rem;
+    color: white;
+    margin-top: 230px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 1100px;
+    height: 360px;
+    padding: 20px;
+    background-color: #1b5e20;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Piece Hover Effect */
+.pieceHovered {
+    background-color: white;
+    cursor: pointer;
+    border-radius: 80px;
+}
+
+.pieceDeleted {
+    visibility: hidden;
+}
+
+/* Game End Section - Centriranje rezultata i gumba */
+#gameEndDiv {
+    margin: 200px auto;
+    text-align: center;
+    font-size: 2rem; /* Veličina fonta za rezultat */
+    color: white;
+    max-width: 400px; /* Ograničenje širine */
+    padding: 20px;
+    background-color: #1b5e20;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Centriranje gumba za izlaz */
+
+#leaveGameButton {
+    width: 350px;
+    height: 60px;
+    padding: 8px;
+    font-size: 1.4rem;
+    position: fixed; /* Fiksni položaj */
+    bottom: 10px; /* Udaljenost od dna ekrana */
+    left: 50%; /* Centriranje na ekranu */
+    transform: translateX(-50%); /* Precizno centriranje */
+    border: 2px solid white;
+    background-color: #1b5e20;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000; /* Osigurava da je gumb iznad ostalog sadržaja */
+}
+
+#leaveGameButton:hover {
+    background-color: white;
+    color: #1b5e20;
+}
+

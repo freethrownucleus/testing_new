@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>NIM</title>
+    <link rel="stylesheet" href="nim.css">
+</head>
+<body onload="showFrontPage()">
+
+    <div id="menu">
+        <div class="bigList">
+            <ul class="buttonList">
+                <li><a onclick="showRanks()">Top lista</a></li>
+                <li><a id="gumbic" onclick="showGameForm(true, true)">&#9654;</a></li>
+                <li><a onclick="showRules()">Pravila</a></li>
+            </ul>
+        </div>
+        <div id="showLoginDiv">
+            <h3 id="showLoginText">Bok!</h3>
+            <button id="logoutButton" onclick="logout()">Odjava</button>
+        </div>
+    </div>
+    
+
+    <div id="homePageDiv">
+        <div id="homeTextDiv">
+            <h1 id="title">NIM</h1>
+            <p>Dobrodošli u igru, puno sreće! 🤞</p>
+        </div>
+    </div>
+
+    <div id="gameFormDiv">
+        <div id="loginDiv">
+            <form id="userInputForm">
+                <label for="userInput"></label>
+                <input id="userInput" type="text" placeholder="Korisničko ime" name="username">
+                <div id="passwordInputDiv">
+                    <label for="passwordInput"></label>
+                    <input id="passwordInput" type="password" placeholder="Lozinka" name="password">
+                </div>
+            </form>
+            <h5 id="wrongPasswordText">Pogrešno korisničko ime ili lozinka!</h5>
+            <button id="loginButton" onclick="login()">Prijava</button>
+        </div>
+
+        <div id="optionsDiv">
+            <h3>Prvi na potezu </h3>
+            <form id="playFirstForm" style="display: flex; gap: 35px; align-items: center; font-size: 1.2rem; margin-left: 30px">
+                <label>
+                    <input type="radio" name="playFirstButton" value="player" checked>
+                </label> Vi
+                <label>
+                    <input type="radio" id="space" name="playFirstButton" value="pc">
+                </label> Računalo
+            </form>
+            </br>
+
+            <h3>Broj stupaca</h3>
+            <form id="boardSizeForm">
+                <label for="boardSizeInput"></label>
+                <select name="boardSizeInput" id="boardSizeInput">
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+            </form>
+            </br><br><br>
+
+            <h3>Verzija igre</h3>
+            <form id="gameVersionForm" style="display: flex; gap: 35px; align-items: center; font-size: 1.2rem; margin-left: 30px">
+                <label>
+                    <input type="radio" name="gameVersion" value="standard" checked>
+                </label> Standardna
+                <label>
+                    <input type="radio" name="gameVersion" value="misere">
+                </label> Misere
+            </form>
+            </br>
+
+            <h3>Razina igre</h3>
+            <form id="difficultyForm" style="display: flex; gap: 35px; align-items: center; font-size: 1.2rem; margin-left: 30px">
+                <label>
+                    <input type="radio" name="difficulty" value="easy" checked>
+                </label> Lakša
+                <label>
+                    <input type="radio" id="space" name="difficulty" value="hard">
+                </label> Teža
+            </form>
+            <br><br>
+            <button id="startButton" onclick="playGame()">&#9654;</button>
+        </div>
+    </div>
+
+    <div id="gameDiv"></div> <!-- Element igre -->   
+
+    <div id="restartGameDiv">
+        <button id="restartGameButton" onclick="restartGame()">&#x1F501;</button>
+    </div>
+
+    <div id="leaveGameDiv">
+        <button id="leaveGameButton" onclick="leaveGame()">Povratak na naslovnu stranicu</button>
+    </div>
+
+    <div id="rankingDiv">
+        <div id="tableRankingDiv" class='rankings'></div>
+    </div>
+
+    <div id="rulesDiv">
+        <ol>
+            <li>Igra sadrži jedan ili više nizova loptica s određenim brojem novčića u svakom nizu.
+            </li><br><br>
+            <li>Igrač i računalo igraju naizmjence, a svatko uklanja proizvoljan broj novčića iz jednog od stupaca.</li><br><br>
+            <li>Pobjednik je onaj igrač koji ukloni zadnji novčić.</li>
+        </ol>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
